@@ -8,6 +8,14 @@ M.disabled = {
       ["<leader>rn"] = "",
   }
 }
+M.general ={
+  n ={
+    ["<C-h>"] = {"TmuxNavigateLeft<CR>", "window left" } ,
+    ["<C-l>"] = {"TmuxNavigateRight<CR>", "window right" } ,
+    ["<C-j>"] = {"TmuxNavigateDown<CR>", "window down" } ,
+    ["<C-k>"] = {"TmuxNavigateUp<CR>", "window up" } ,
+  }
+}
 M.customs = {
   n = {
     ["<leader>x"] ={

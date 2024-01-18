@@ -1,5 +1,4 @@
 local M = {}
-
 M.clangd = {
   n = {
     ['<M-o>'] = {
