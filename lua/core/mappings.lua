@@ -188,7 +188,7 @@ M.lspconfig = {
 
     ["gr"] = {
       function()
-        vim.lsp.buf.references()
+        require('telescope.builtin').lsp_references()
       end,
       "LSP references",
     },

@@ -14,6 +14,7 @@ end
 
 lspconfig.clangd.setup {
   on_attach = function(client, bufnr)
+    vim.lsp.diagnostic.show_line_diagnostics({focusable = false})
     require('custom.configs.clangd')
     client.server_capabilities.signatureHelpProvider = false
     on_attach(client, bufnr)
