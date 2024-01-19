@@ -25,7 +25,7 @@ if vim.loop.os_uname().sysname == 'Windows_NT' then
   end
 
 end
-
+opt.scrolloff=8
 opt.laststatus = 3 -- global statusline
 opt.showmode = false
 

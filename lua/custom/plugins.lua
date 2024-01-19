@@ -1,3 +1,5 @@
+
+
 local handler = function(virtText, lnum, endLnum, width, truncate)
     local newVirtText = {}
     local suffix = (' 󰁂 %d '):format(endLnum - lnum)
@@ -44,6 +46,16 @@ local plugins = {
     "christoomey/vim-tmux-navigator",
     lazy = false,
   },
+  {
+    "kylechui/nvim-surround",
+    version = "*", -- Use for stability; omit to use `main` branch for the latest features
+    event = "VeryLazy",
+    config = function()
+        require("nvim-surround").setup({
+            -- Configuration here, or leave empty to use defaults
+        })
+    end
+  },
 	{
 		"xiyaowong/transparent.nvim",
     lazy = false,
@@ -62,6 +74,7 @@ local plugins = {
 					"Underlined",
 					"Todo",
 					"String",
+          "Folded",
 					"Function",
 					"Conditional",
 					"Repeat",
@@ -75,6 +88,19 @@ local plugins = {
 					"StatusLine",
 					"StatusLineNC",
 					"EndOfBuffer",
+          "TelescopeMatching", 
+          "TelescopeSelection", 
+          "TelescopePromptTitle" ,
+          "TelescopePromptPrefix" ,
+          "TelescopePromptCounter" ,
+          "TelescopePromptNormal" ,
+          "TelescopePromptBorder" ,
+          "TelescopeResultsTitle" ,
+          "TelescopeResultsNormal" ,
+          "TelescopeResultsBorder" ,
+          "TelescopePreviewTitle" ,
+          "TelescopePreviewNormal" ,
+          "TelescopePreviewBorder" , 
 				},
 				extra_groups = {}, -- table: additional groups that should be cleared
 				exclude_groups = {}, -- table: groups you don't want to clear
@@ -118,7 +144,7 @@ local plugins = {
     lazy = false,
     dependencies = {'kevinhwang91/promise-async'},
     config = function ()
-      vim.o.foldcolumn = '1' -- '0' is not bad
+      vim.o.foldcolumn = '0' -- '0' is not bad
       vim.o.foldlevel = 99 -- Using ufo provider need a large value, feel free to decrease the value
       vim.o.foldlevelstart = 99
       vim.o.foldenable = true

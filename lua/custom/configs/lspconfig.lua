@@ -8,9 +8,9 @@ local cmd
 if  vim.loop.os_uname().sysname == 'Windows_NT' then
   cmd =  {
     'clangd.exe',
+      "--pretty",
       --[[ "--pch-storage=memory",
       "--all-scopes-completion",
-      "--pretty",
       "-j=4",
       "--inlay-hints",]]
     "--completion-style=detailed",
@@ -19,9 +19,9 @@ if  vim.loop.os_uname().sysname == 'Windows_NT' then
 else
   cmd =  {
     'clangd',
+      "--pretty",
       --[[ "--pch-storage=memory",
       "--all-scopes-completion",
-      "--pretty",
       "-j=4",
       "--inlay-hints",]]
     "--completion-style=detailed",
@@ -35,6 +35,16 @@ lspconfig.clangd.setup {
     client.server_capabilities.signatureHelpProvider = false
     on_attach(client, bufnr)
   end,
+  filetypes = {
+    "c",
+    "cpp",
+    "objc",
+    "objcpp",
+    "cuda",
+    "proto",
+    "h",
+    "hpp",
+  },
   cmd = cmd,
   capabilities = capabilities,
 }

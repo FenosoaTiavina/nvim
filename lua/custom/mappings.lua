@@ -1,19 +1,25 @@
 local M = {}
 M.disabled = {
   n = {
-      ["<leader>x"] = "",
-      ["<tab>"] = "",
-      ["<S-tab>"] = "",
-      ["<leader>n"] =  "",
-      ["<leader>rn"] = "",
+    ["<leader>x"] = "",
+    ["<tab>"] = "",
+    ["<S-tab>"] = "",
+    ["<leader>n"] =  "",
+    ["<leader>rn"] = "",
+    ["<leader>q"] = ""
   }
 }
 M.general ={
   n ={
-    ["<C-h>"] = {"TmuxNavigateLeft<CR>", "window left" } ,
-    ["<C-l>"] = {"TmuxNavigateRight<CR>", "window right" } ,
-    ["<C-j>"] = {"TmuxNavigateDown<CR>", "window down" } ,
-    ["<C-k>"] = {"TmuxNavigateUp<CR>", "window up" } ,
+    ["<C-h>"] = {"<cmd>TmuxNavigateLeft<CR>", "window left" } ,
+    ["<C-l>"] = {"<cmd>TmuxNavigateRight<CR>", "window right" } ,
+    ["<C-j>"] = {"<cmd>TmuxNavigateDown<CR>", "window down" } ,
+    ["<C-k>"] = {"<cmd>TmuxNavigateUp<CR>", "window up" } ,
+  }
+}
+M.lspconfig = {
+  n = {
+    ["<leader>q"] = {"<cmd>Telescope diagnostics<CR>", "Diagnostics lists"}
   }
 }
 M.customs = {
