@@ -11,7 +11,7 @@ M.ui = {
   hl_override = {},
   changed_themes = {},
   theme_toggle = { "onedark", "one_light" },
-  theme = "onedark", -- default theme
+  theme = "nightowl", -- default theme
   transparency = false,
   lsp_semantic_tokens = false, -- needs nvim v0.9, just adds highlight groups for lsp semantic tokens
 
@@ -78,7 +78,7 @@ M.ui = {
     -- show function signatures i.e args as you type
     signature = {
       disabled = false,
-      silent = false, -- silences 'no signature help available' message from appearing
+      silent = true, -- silences 'no signature help available' message from appearing
     },
   },
 }

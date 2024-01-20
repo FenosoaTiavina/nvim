@@ -88,8 +88,9 @@ local plugins = {
 					"StatusLine",
 					"StatusLineNC",
 					"EndOfBuffer",
-          "TelescopeMatching", 
-          "TelescopeSelection", 
+
+          -- "TelescopeMatching", 
+          -- "TelescopeSelection", 
           "TelescopePromptTitle" ,
           "TelescopePromptPrefix" ,
           "TelescopePromptCounter" ,
