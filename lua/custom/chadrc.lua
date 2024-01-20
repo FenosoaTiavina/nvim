@@ -1,6 +1,6 @@
 ---@type ChadrcConfig 
  local M = {}
- M.ui = { theme = 'catppuccin' ,
+ M.ui = { theme = 'ayu_dark' ,
   hl_override = {
       LineNr = { fg = "white" },
       Comment = {fg = "#c2c2c2"},

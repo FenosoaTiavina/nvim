@@ -10,20 +10,20 @@ if  vim.loop.os_uname().sysname == 'Windows_NT' then
     'clangd.exe',
       "--pretty",
       --[[ "--pch-storage=memory",
-      "--all-scopes-completion",
-      "-j=4",
-      "--inlay-hints",]]
+      "-j=4",]]
+    "--all-scopes-completion",
+    "--inlay-hints",
     "--completion-style=detailed",
-    '--query-driver="C:/Tools/mingw64/bin/gcc.exe,C:/Tools/mingw64/bin/g++.exe"'
+    '--query-driver="C:/Tools/mingw64/bin/gcc.exe,C:/Tools/mingw64/bin/g++.exe",C:/Tools/mingw64/bin/clang++.exe",C:/Tools/mingw64/bin/clang.exe",C:/Tools/mingw64/bin/clang-cpp.exe"'
   }
 else
   cmd =  {
     'clangd',
       "--pretty",
       --[[ "--pch-storage=memory",
-      "--all-scopes-completion",
-      "-j=4",
-      "--inlay-hints",]]
+      "-j=4",]]
+    "--all-scopes-completion",
+    "--inlay-hints",
     "--completion-style=detailed",
   }
 end
