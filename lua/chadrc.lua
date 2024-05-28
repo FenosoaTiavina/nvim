@@ -1,6 +1,12 @@
----@type ChadrcConfig 
- local M = {}
- M.ui = { theme = 'ayu_dark' ,
+-- This file  needs to have same structure as nvconfig.lua 
+-- https://github.com/NvChad/NvChad/blob/v2.5/lua/nvconfig.lua
+
+---@type ChadrcConfig
+   local M = {}
+ M.ui = { theme = 'falcon' ,
+  tabufline = {
+    enabled =false
+  },
   hl_override = {
       LineNr = { fg = "white" },
       Comment = {fg = "#c2c2c2"},
@@ -13,6 +19,4 @@
       TelescopePreviewTitle = { fg = "white" },
    },
 }
- M.plugins = "custom.plugins"
- M.mappings = require("custom.mappings")
- return M
+return M
