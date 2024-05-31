@@ -27,13 +27,8 @@ local handler = function(virtText, lnum, endLnum, width, truncate)
 end
 
 return {
-  {
-    "stevearc/conform.nvim",
-    -- event = 'BufWritePre', -- uncomment for format on save
-    config = function()
-      require "configs.conform"
-    end,
-  },
+
+  -- INFO: disable plugins:
   {
     "NvChad/nvterm",
     enabled = false,
@@ -46,7 +41,14 @@ return {
     "nvim-tree/nvim-tree.lua",
     enabled = false,
   },
-  -- These are some examples, uncomment them if you want to see them work!
+  -- INFO: disable plugins
+  {
+    "stevearc/conform.nvim",
+    event = "BufWritePre", -- uncomment for format on save
+    config = function()
+      require "configs.conform"
+    end,
+  },
   {
     "christoomey/vim-tmux-navigator",
     lazy = false,
@@ -400,52 +402,10 @@ return {
       }
     end,
   },
-
-  --[[ {
-    "rcarriga/nvim-dap-ui",
-    event = "VeryLazy",
-    dependencies = "mfussenegger/nvim-dap",
-    config = function()
-      local dap = require("dap")
-      local dapui = require("dapui")
-      dapui.setup()
-      dap.listeners.after.event_initialized["dapui_config"] = function()
-        dapui.open()
-      end
-      dap.listeners.before.event_terminated["dapui_config"] = function()
-        dapui.close()
-      end
-      dap.listeners.before.event_exited["dapui_config"] = function()
-        dapui.close()
-      end
-    end
-  }, ]]
-
-  --[[ {
-    "jay-babu/mason-nvim-dap.nvim",
-    event = "VeryLazy",
-    dependencies = {
-      "williamboman/mason.nvim",
-      "mfussenegger/nvim-dap",
-    },
-    opts = {
-      handlers = {}
-    },
-  }, ]]
-
-  --[[ {
-    "mfussenegger/nvim-dap",
-    config = function(_, _)
-      require("custom.configs.daps.c_cpp")
-      require("core.utils").load_mappings("dap")
-    end
-  }, ]]
-
   {
     "nvimtools/none-ls.nvim",
     event = "VeryLazy",
-    opts = function() 
-    end,
+    opts = function() end,
   },
 
   {
@@ -453,16 +413,6 @@ return {
     config = function()
       require "configs.lspconfig"
     end,
-  },
-  {
-    "williamboman/mason.nvim",
-    opts = {
-      ensure_installed = {
-        "clangd",
-        "clang-format",
-        "codelldb",
-      },
-    },
   },
   {
     "stevearc/dressing.nvim",
@@ -497,10 +447,48 @@ return {
         "html-lsp",
         "css-lsp",
         "prettier",
+        "rust-analyzer",
       },
     },
   },
-
+  {
+    "mrcjkb/rustaceanvim",
+    version = "^4",
+    ft = { "rust" },
+    dependencies = "neovim/nvim-lspconfig",
+    config = function() end,
+  },
+  {
+    "mfussenegger/nvim-dap",
+    init = function() end,
+  },
+  {
+    "saecki/crates.nvim",
+    ft = { "toml" },
+    event = { "BufRead Cargo.toml" },
+    config = function(_, opts)
+      local crates = require "crates"
+      crates.setup(opts)
+      require("cmp").setup.buffer {
+        sources = { { name = "crates" } },
+      }
+      crates.show()
+    end,
+  },
+  {
+    "rust-lang/rust.vim",
+    ft = "rust",
+    init = function()
+      vim.g.rustfmt_autosave = 1
+    end,
+  },
+  {
+    "theHamsta/nvim-dap-virtual-text",
+    lazy = false,
+    config = function(_, opts)
+      require("nvim-dap-virtual-text").setup()
+    end,
+  },
   {
     "nvim-treesitter/nvim-treesitter",
     opts = {
